@@ -1,0 +1,200 @@
+{
+    "items": [{
+        "label": "Programa Ciencia Viva",
+        "type": "act",
+        "id": "ACCV",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Programa Leer juntos. Tertulias literarias",
+        "type": "act",
+        "id": "ACLX",
+        "st": "Competencia comunicativa"
+    }, {
+        "label": "Programa Toma y Lee",
+        "type": "act",
+        "id": "ACTL",
+        "st": "Competencia comunicativa"
+    }, {
+        "label": "Ajedrez a la escuela",
+        "type": "act",
+        "id": "ALAJ",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Programa Cantania",
+        "type": "act",
+        "id": "ALCA",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Coros escolares",
+        "type": "act",
+        "id": "ALCE",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Centros Rurales de Innovaci\u00f3n Educativa (CRIEs)",
+        "type": "act",
+        "id": "ALCR",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Aulas de innovaci\u00f3n",
+        "type": "act",
+        "id": "ALIN",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Abierto por vacaciones",
+        "type": "act",
+        "id": "APVA",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Aprendiendo a emprender",
+        "type": "act",
+        "id": "IEAE",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Concurso de premios de buenas pr\u00e1cticas innovadoras en 2\u00ba ciclo de Educaci\u00f3n Infantil.",
+        "type": "act",
+        "id": "IEBP",
+        "st": "Nuevas tecnologías e innovación"
+    }, {
+        "label": "Programa Conexi\u00f3n Matem\u00e1tica",
+        "type": "act",
+        "id": "IECM",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Programa un d\u00eda de cine",
+        "type": "act",
+        "id": "IEDC",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Proyectos de innovaci\u00f3n basados en evidencias (Grupos interactivos)",
+        "type": "act",
+        "id": "IEGI",
+        "st": "Nuevas tecnologías e innovación"
+    }, {
+        "label": "Participaci\u00f3n en el programa de Proyectos de innovaci\u00f3n e investigaci\u00f3n educativa",
+        "type": "act",
+        "id": "IEPR",
+        "st": "Nuevas tecnologías e innovación"
+    }, {
+        "label": "Autorizaci\u00f3n para impartir biling\u00fcismo CILE 1 y 2",
+        "type": "act",
+        "id": "LEAB",
+        "st": "Lenguas extranjeras"
+    }, {
+        "label": "Programa Luz\u00eda Dueso",
+        "type": "act",
+        "id": "LELD",
+        "st": "Competencia comunicativa"
+    }, {
+        "label": "Proyecto de Potenciaci\u00f3n de Lenguas extranjeras (POLE)",
+        "type": "act",
+        "id": "LEPO",
+        "st": "Lenguas extranjeras"
+    }, {
+        "label": "Programa de Desarrollo de Capacidades",
+        "type": "act",
+        "id": "PRDC",
+        "st": "Orientación"
+    }, {
+        "label": "Inclusión educativa",
+        "type": "act",
+        "id": "_TEA",
+        "st": "Orientación"
+    }, {
+        "label": "Cursos del INAEM",
+        "type": "act",
+        "id": "_INAEM",
+        "st": "Otros"
+    }, {
+        "label": "Otras actividades",
+        "type": "act",
+        "id": "_ME",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Proyecto YHDEA",
+        "type": "act",
+        "id": "_YD",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Otras actividades",
+        "type": "act",
+        "id": "_BP",
+        "st": "Orientación"
+    }, {
+        "label": "Proyecto cultural del centro",
+        "type": "act",
+        "id": "_PC",
+        "st": "Otros"
+    }, {
+        "label": "Difusi\u00f3n del centro",
+        "type": "act",
+        "id": "_DC",
+        "st": "Otros"
+    }, {
+        "label": "Convivencia",
+        "type": "act",
+        "id": "_CONV",
+        "st": "Orientación"
+    }, {
+        "label": "Ciencia",
+        "type": "act",
+        "id": "_CIEN",
+        "st": "Mejora educativa"
+    }, {
+        "label": "Nuevas Tecnolog\u00edas",
+        "type": "act",
+        "id": "_NTEC",
+        "st": "Nuevas tecnologías e innovación"
+    }, {
+        "label": "Premios de buenas pr\u00e1cticas de educaci\u00f3n inclusiva y de convivencia",
+        "type": "act",
+        "id": "_BPEI",
+        "st": "Orientación"
+    }, {
+        "label": "Otros",
+        "type": "act",
+        "id": "_CBPC",
+        "st": "Orientación"
+    }, {
+        "label": "Premio Acci\u00f3n Magistral",
+        "type": "act",
+        "id": "_PAM",
+        "st": "Otros"
+    }, {
+        "label": "Proyecto de innovaci\u00f3n con tablets",
+        "type": "act",
+        "id": "_PIT1",
+        "st": "Nuevas tecnologías e innovación"
+    }, {
+        "type": "act",
+        "label": "Nuevas tecnologías e innovación"
+    }, {
+        "type": "act",
+        "label": "Lenguas extranjeras"
+    }, {
+        "type": "act",
+        "label": "Orientación"
+    }, {
+        "type": "act",
+        "label": "Competencia comunicativa"
+    }, {
+        "type": "act",
+        "label": "Otros"
+    }, {
+        "type": "act",
+        "label": "Mejora educativa"
+    }, {
+        "type":"p",
+        "id": "premio",
+        "label": "Centros premiados"
+    }, {
+        "type":"p",
+        "id": "destacado",
+        "label": "Destacados por la admon."
+    }],
+    "types": {
+        "act": {
+            "label": "actividad",
+            "pluralLabel": "actividades"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+     "types": {
+        "rec": {
+            "pluralLabel": "recursos",
+            "label": "recurso"
+        }
+    },
+
+ "properties": {
+        "cpro": {
+            "valueType": "item",
+            "label": "programa"
+        },
+        "centro": {
+            "valueType": "item"},
+
+        "premiado": {
+            "valueType": "item"}
+
+    }
+}
+
