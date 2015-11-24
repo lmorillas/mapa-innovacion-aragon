@@ -131,7 +131,9 @@
                 <div class="ext_search" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centro.label, .cpro.label">
                 </div>
                 <br>
-                <div data-ex-role="facet" data-ex-expression=".cpro" data-ex-facet-class="Hierarchical" data-ex-uniform-grouping=".st" data-ex-facet-label="Actividad" data-ex-scroll="false" data-ex-collapsible="true"></div>
+                <div data-ex-role="facet" data-ex-expression="" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true"></div>
+                <br>
+                <div data-ex-role="facet" data-ex-expression=""  data-ex-facet-label="Competencias básicas"  data-ex-collapsible="true"></div>
             </div>
             <div class="col-md-6">
                 <!-- color coder -->
@@ -155,19 +157,15 @@
 
                 </div>
                 <!-- mapa -->
-                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centro.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="8" data-ex-map-height="540" data-ex-show-tool-box="true" data-ex-color-key=".centro.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centro.label" data-ex-type="terrain" data-ex-map-constructor="map_with_borders">
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centro.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="8" data-ex-map-height="540" data-ex-show-tool-box="true" data-ex-color-key=".centro.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centro.label" data-ex-type="terrain"  data-ex-map-constructor="map_with_borders">
                 </div>
             </div>
             <div class="col-md-3">
-                <div id="premiado" data-ex-role="exhibit-facet" data-ex-expression=".premiado" data-ex-facet-label="De interés" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                <br>
                 <div data-ex-role="exhibit-facet" data-ex-expression=".centro.tit" data-ex-facet-label="Titularidad" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <br>
                 <div data-ex-role="exhibit-facet" data-ex-expression=".centro.tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <br>
                 <div data-ex-role="exhibit-facet" data-ex-expression=".centro.prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                <br>
-                <div data-ex-role="exhibit-facet" data-ex-expression=".centro.com" data-ex-facet-label="Comarca" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-collapsed="true"></div>
             </div>
         </div>
         <footer>
