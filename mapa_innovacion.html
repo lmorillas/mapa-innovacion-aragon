@@ -105,7 +105,6 @@
 
         var map = new google.maps.Map(
             mapDiv, {
-
                 mapTypeId: google.maps.MapTypeId.TERRAIN,
             });
 
@@ -113,7 +112,6 @@
             url: "http://lmorillas.github.io/exhibit_tests/aragon.kmz",
             map: map
             });
-
         return map;
     }
     </script>
@@ -121,6 +119,7 @@
 
 <body>
     <div class="container-fluid">
+    <h1 class="text-center">Área47mil: Innovación y programas educativos de Aragón</h1>
         <div data-ex-role="exhibit-collection" data-ex-item-types="rec"></div>
         <div class="row">
             <div class="col-md-3">
@@ -153,7 +152,7 @@
 
                 </div>
                 <!-- mapa -->
-                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centro.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="800" data-ex-show-tool-box="true" data-ex-color-key=".centro.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centro.label"   data-ex-map-constructor="map_with_borders">
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centro.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".centro.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centro.label"   data-ex-map-constructor="map_with_borders">
                 </div>
             </div>
             <div class="col-md-3">
