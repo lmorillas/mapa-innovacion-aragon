@@ -24,8 +24,8 @@
     <!-- libs simile-exhibit -->
     <script src="js/lib/jquery-1.11.3.min.js" type="text/javascript">
     </script>
-    <link rel="exhibit-extension" href="js/extensions/map/map-extension.js" />
-    <script src="js/exhibit-api.js?locale=es" type="text/javascript"></script>
+    <link rel="exhibit-extension" href="js/extensions/map/map-extension.js?bundle=false" />
+    <script src="js/exhibit-api.js?locale=es&bundle=false" type="text/javascript"></script>
     <link rel='stylesheet' href='http://www.simile-widgets.org/styles/common.css' type='text/css' />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -123,12 +123,21 @@
         <div data-ex-role="exhibit-collection" data-ex-item-types="rec"></div>
         <div class="row">
             <div class="col-md-3">
+
                 <div class="ext_search" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centro.label, .cpro.label">
                 </div>
+
                 <br>
+                <!--
                 <div data-ex-role="facet" data-ex-expression="" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true"></div>
                 <br>
                 <div data-ex-role="facet" data-ex-expression=""  data-ex-facet-label="Competencias básicas"  data-ex-collapsible="true"></div>
+
+            -->
+            <p><strong>Líneas estratégicas</strong></p>
+            <p>...</p>
+            <p><strong>Competencias básicas</strong></p>
+            <p>...</p>
             </div>
             <div class="col-md-6">
                 <!-- color coder -->
