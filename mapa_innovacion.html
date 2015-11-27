@@ -11,7 +11,7 @@
     <!-- datos_centros.csv  datos de los centros educativos (centros que han enviado recursos -->
     <!-- recursos_centros.csv  datos de los recursos que han mandado los centros educativos -->
     <link href="centros_con_recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
-    <link href="recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
+    <link href="recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=";">
     <!-- for testing -->
     <!--
     <link href="csvs/datos_centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
@@ -31,50 +31,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    .exhibit-cloudFacet-value {
-        font-size: smaller;
-        text-transform: lowercase;
-    }
-
-    .exhibit-facet-value {
-        font-size: smaller;
-    }
-
-    .exhibit-facet-header,
-    .exhibit-cloudFacet-header {
-        margin-top: 12px;
-    }
-
-    div.exhibit-legendWidget > div.exhibit-color-legend > div > div > span.label {
-        color: black;
-    }
-
-    .titulo {
-        text-align: center;
-    }
-
-    .row {
-        margin-top: 4em;
-    }
-
-    img.w {
-        width: 70%;
-    }
-
-    .sameheight {
-        margin-bottom: -99999px;
-        padding-bottom: 99999px;
-    }
-
-    #content {
-        overflow: hidden;
-    }
-    </style>
     <script>
     $(document).bind("dataload.exhibit", function() {
         $("input").addClass("form-control");
-        $('div#premiado').children('div').children('span').prepend('<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>');
         $('div.exhibit-mapView-map').addClass('img-rounded');
         $('div.exhibit-facet-body').addClass('img-rounded');
     });
@@ -122,6 +81,16 @@
         return map;
     }
     </script>
+    <style>
+    .sameheight {
+        margin-bottom: -99999px;
+        padding-bottom: 99999px;
+    }
+
+    #content {
+        overflow: hidden;
+    }
+    </style>
 </head>
 
 <body>
@@ -129,8 +98,8 @@
         <h1 class="text-center">Área47mil: Innovación y programas educativos de Aragón</h1>
         <div data-ex-role="exhibit-collection" data-ex-item-types="rec"></div>
         <div class="row " id="content">
-            <div class="col-md-3 sameheight" style="background: #FFAC00;">
-                <div class="ext_search" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centro.label, .cpro.label">
+            <div class="col-md-3 sameheight" style="border: 1px solid #ebebeb;">
+                <div class="ext_search" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centros.label, .cpro.label">
                 </div>
                 <br>
                 <!--
@@ -139,12 +108,12 @@
                 <div data-ex-role="facet" data-ex-expression=""  data-ex-facet-label="Competencias básicas"  data-ex-collapsible="true"></div>
 
             -->
-                <p><strong>Líneas estratégicas</strong></p>
-                <p>...</p>
-                <p><strong>Competencias básicas</strong></p>
+                <div data-ex-role="exhibit-facet" data-ex-expression=".lineas" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
+
+                <div data-ex-role="exhibit-facet" data-ex-expression=".competencias" data-ex-facet-label="Competencias" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <p>...</p>
             </div>
-            <div class="col-md-6 sameheight" style="background: #53BBF4;">
+            <div class="col-md-6 sameheight">
                 <!-- color coder -->
                 <div data-ex-role="coder" data-ex-coder-class="Color" id="colores-centros" style="display: none;">
                     <span data-ex-color="blue">Ed. Especial</span>
@@ -157,7 +126,7 @@
                 </div>
                 <!-- información del recurso -->
                 <div class="map-lens" data-ex-role="lens" style="display: none" data-ex-item-types="rec" data-ex-onshow="muestraRecurso(this)" data-ex-url-subcontent="{{.link}}">
-                    <p data-ex-content="concat(.id, .label, ' (', .centro.label, ')')" style="font-weight: bold;"></p>
+                    <p data-ex-content="concat(.id, .label, ' (', .centros.label, ')')" style="font-weight: bold;"></p>
                     <div data-ex-id-subcontent="{{value}}">
                     </div>
                     <div data-ex-class-subcontent="iflense"></div>
@@ -165,15 +134,15 @@
                     <p><a target="_parent" data-ex-href-subcontent="http://area47mil.educa.aragon.es/w/index.php?curid={{.pagina}}" style="text-decoration: underline;">Más info sobre la actividad</a></p>
                 </div>
                 <!-- mapa -->
-                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centro.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".centro.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centro.label" data-ex-map-constructor="map_with_borders">
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centros.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".centros.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders">
                 </div>
             </div>
-            <div class="col-md-3 sameheight" style="background: #29F585;">
-                <div data-ex-role="exhibit-facet" data-ex-expression=".centro.tit" data-ex-facet-label="Titularidad" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
+            <div class="col-md-3 sameheight" style="border: 1px solid #ebebeb;">
+                <div data-ex-role="exhibit-facet" data-ex-expression=".centros.tit" data-ex-facet-label="Titularidad" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false" ></div>
                 <br>
-                <div data-ex-role="exhibit-facet" data-ex-expression=".centro.tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
+                <div data-ex-role="exhibit-facet" data-ex-expression=".centros.tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <br>
-                <div data-ex-role="exhibit-facet" data-ex-expression=".centro.prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
+                <div data-ex-role="exhibit-facet" data-ex-expression=".centros.prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
             </div>
         </div>
         <footer>
