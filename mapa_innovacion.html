@@ -32,12 +32,13 @@
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-
     $(document).bind("dataload.exhibit", function() {
         $("input").addClass("form-control");
         $('div.exhibit-mapView-map').addClass('img-rounded');
         $('div.exhibit-facet-body').addClass('img-rounded');
         jQuery('.mypanel').addClass('panel panel-primary');
+        jQuery('.exhibit-flowingFacet-header').addClass('panel-heading');
+        jQuery('.exhibit-facet-header').addClass('panel-heading');
     });
     </script>
     <script>
@@ -87,7 +88,7 @@
     .sameheight {
         margin-bottom: -99999px;
         padding-bottom: 99999px;
-        border: 1px solid #ebebeb;"
+        border: 1px solid #ebebeb;
     }
 
     #content {
@@ -106,22 +107,19 @@
         <div data-ex-role="exhibit-collection" data-ex-item-types="rec"></div>
         <div class="row " id="content">
             <div class="col-md-3">
-                <div class="ext_search" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centros.label, .cpro.label, .centros.localidad">
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centros.label, .cpro.label, .centros.localidad">
                 </div>
-                <br>
-                <!--
-                <div data-ex-role="facet" data-ex-expression="" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true"></div>
-                <br>
-                <div data-ex-role="facet" data-ex-expression=""  data-ex-facet-label="Competencias básicas"  data-ex-collapsible="true"></div>
-
-            -->
-                <div class="mypanel">
-                <div data-ex-role="exhibit-facet" data-ex-expression=".lineas" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                </div>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".lineas" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".competencias" data-ex-facet-label="Competencias" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
             </div>
             <div class="col-md-6 sameheight">
                 <!-- color coder -->
+                <div data-ex-role="coder" data-ex-coder-class="Color" id="lineas" style="display: none;">
+                    <span data-ex-color="blue">Compromiso social</span>
+                    <span data-ex-color="red">Comunicación oral</span>
+                    <span data-ex-color="#FF00FF">Gestión de las emociones</span>
+                    <span data-ex-color="#009A57">TAC (Tecnologías del Aprendizaje y del Conocimiento)</span>
+                </div>
                 <div data-ex-role="coder" data-ex-coder-class="Color" id="colores-centros" style="display: none;">
                     <span data-ex-color="blue">Ed. Especial</span>
                     <span data-ex-color="red">Primaria</span>
@@ -145,11 +143,8 @@
                 </div>
             </div>
             <div class="col-md-3">
-
-                <div class="mypanel" style="margin-top: 16px" data-ex-role="exhibit-facet" data-ex-expression=".centros.tit" data-ex-facet-label="Titularidad" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false" ></div>
-                <br>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.tit" data-ex-facet-label="Titularidad" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                <br>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
             </div>
         </div>
