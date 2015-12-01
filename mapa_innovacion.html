@@ -27,8 +27,11 @@
     <script src="js/exhibit-api.js?locale=es&bundle=false" type="text/javascript"></script>
     <link rel='stylesheet' href='http://www.simile-widgets.org/styles/common.css' type='text/css' />
     <!-- Bootstrap -->
+    <!--
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://bootswatch.com/united/bootstrap.min.csshttps://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
@@ -84,21 +87,7 @@
         return map;
     }
     </script>
-    <style>
-    .sameheight {
-        margin-bottom: -99999px;
-        padding-bottom: 99999px;
-        border: 1px solid #ebebeb;
-    }
 
-    #content {
-        overflow: hidden;
-    }
-
-    body {
-        background-color: #F7F7F7;
-    }
-    </style>
 </head>
 
 <body>
@@ -113,7 +102,7 @@
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".competencias" data-ex-facet-label="Competencias" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".institucional" data-ex-facet-label="Tipo proyecto" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
             </div>
-            <div class="col-md-6 sameheight">
+            <div class="col-md-6">
                 <!-- color coder -->
                 <div data-ex-role="coder" data-ex-coder-class="Color" id="lineas" style="display: none;">
                     <span data-ex-color="blue">Compromiso social</span>
