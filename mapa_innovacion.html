@@ -76,6 +76,13 @@
         $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe src="https://player.vimeo.com/video/' + _url + '" ></iframe></div>');
     }
 
+    function create_swf(rec, url) {
+        var _url = url.split('/').pop()
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9">
+            <object data="'+url+'" type="application/x-shockwave-flash" >
+            <param value="' + url + '" name="movie"  /></object></div>');
+    }
+
     function muestraRecurso(rec) {
         var itemID = rec.getAttribute("itemid");
         var url = rec.getAttribute("url");
@@ -93,7 +100,8 @@
             create_sway(pos, url);
         }  else if (url.indexOf('vimeo') != -1) {
             create_vimeo(pos, url);
-        }
+        } else if (url.indexOf('swf') != -1) {
+            create_swf(pos, url);
     }
  </script>
     <script type="text/javascript">
