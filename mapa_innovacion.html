@@ -57,11 +57,6 @@
         $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe src="' + url + '" ></iframe></div>');
     }
 
-    function create_vimeo(rec, url) {
-        url = url.replace('edit', 'preview');
-        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe src="' + url + '" ></iframe></div>');
-    }
-
     function create_pdf(rec, url) {
         $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src="' + url + '" frameborder = "0" allowfullscreen > < /iframe></div >');
     }
@@ -76,6 +71,10 @@
         $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src="https://sway.com/s/' + _url + '/embed" frameborder = "0" fs="1" allowfullscreen> < /iframe></div > ');
     }
 
+    function create_vimeo(rec, url) {
+        var _url = url.split('/').pop()
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe src="https://player.vimeo.com/video/' + url + '" ></iframe></div>');
+    }
 
     function muestraRecurso(rec) {
         var itemID = rec.getAttribute("itemid");
@@ -93,7 +92,7 @@
         } else if (url.indexOf('sway') != -1) {
             create_sway(pos, url);
         }  else if (url.indexOf('vimeo') != -1) {
-            create_go(pos, url);
+            create_vimeo(pos, url);
         }
     }
  </script>
