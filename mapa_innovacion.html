@@ -12,11 +12,7 @@
     <!-- recursos_centros.csv  datos de los recursos que han mandado los centros educativos -->
     <link href="centros_con_recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
     <link href="recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=";">
-    <!-- for testing -->
-    <!--
-    <link href="csvs/datos_centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
-    <link href="csvs/recursos_centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
-    -->
+
     <!-- tipos de actividades -->
     <link href="tiposp.json" type="application/json" rel="exhibit-data">
     <link href="schema.json" type="application/json" rel="exhibit-data">
@@ -81,7 +77,7 @@
             });
 
         var ctaLayer = new google.maps.KmlLayer({
-            url: "http://lmorillas.github.io/exhibit_tests/aragon.kmz",
+            url: "http://area47mil.educa.aragon.es/visual2/aragon.kmz",
             map: map
         });
         return map;
@@ -92,9 +88,8 @@
 
 <body>
     <div class="container-fluid">
-        <h1 class="text-center">Área47mil: Innovación y programas educativos de Aragón</h1>
         <div data-ex-role="exhibit-collection" data-ex-item-types="rec"></div>
-        <div class="row " id="content">
+        <div class="row " id="content" style="margin:0;">
             <div class="col-md-3">
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centros.label, .cpro.label, .centros.localidad">
                 </div>
