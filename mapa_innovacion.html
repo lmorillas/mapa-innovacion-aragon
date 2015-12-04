@@ -77,9 +77,7 @@
     }
 
     function create_swf(rec, url) {
-        $(rec).append('<div class="embed-responsive embed-responsive-16by9">
-            <object data="'+url+'" type="application/x-shockwave-flash" >
-            <param value="' + url + '" name="movie"  /></object></div>');
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9"><object data="'+url+'" type="application/x-shockwave-flash" > <param value="' + url + '" name="movie"  /></object></div>');
     }
 
     function muestraRecurso(rec) {
