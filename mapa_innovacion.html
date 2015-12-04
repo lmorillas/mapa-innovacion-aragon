@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Programas educativos Aragón</title>
@@ -9,8 +10,8 @@
     <link href="datosp.json" type="application/json" rel="exhibit-data">
     <!-- datos_centros.csv  datos de los centros educativos (centros que han enviado recursos -->
     <!-- recursos_centros.csv  datos de los recursos que han mandado los centros educativos -->
-    <link href="http://area47mil.educa.aragon.es/w/index.php?title=Especial:CargoExport&tables=NRecursosDB&&fields=titulo%3Dlabel%2C%22rec%22%3Dtype%2Clink%2Ccprog%3Dcpro%2Cmetodologia%2Cdescripcion%2Cmas%2Cwebproyecto%2Ccompetencias%2Cresponsables%2Ccontacto%2Clineas%2CREPLACE%28REPLACE%28institucional%2C+0%2C+%22No+institucional%22%29%2C+1%2C+%22Institucional%22%29%3Dinstitucional%2C_pageID%3Dpagina%2Ccentros&&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
-    <link href="http://area47mil.educa.aragon.es/w/index.php?title=Especial:CargoExport&tables=NRecursosDB&&fields=titulo%3Dlabel%2C%22rec%22%3Dtype%2Clink%2Ccprog%3Dcpro%2Cmetodologia%2Cdescripcion%2Cmas%2Cwebproyecto%2Ccompetencias%2Cresponsables%2Ccontacto%2Clineas%2CREPLACE%28REPLACE%28institucional%2C+0%2C+%22No+institucional%22%29%2C+1%2C+%22Institucional%22%29%3Dinstitucional%2C_pageID%3Dpagina%2Ccentros&&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=";">
+    <link href="centros_con_recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
+    <link href="recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=";">
     <!-- for testing -->
     <!--
     <link href="csvs/datos_centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
@@ -26,10 +27,6 @@
     <script src="js/exhibit-api.js?locale=es&bundle=false" type="text/javascript"></script>
     <link rel='stylesheet' href='http://www.simile-widgets.org/styles/common.css' type='text/css' />
     <!-- Bootstrap -->
-    <!--
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://bootswatch.com/united/bootstrap.min.csshttps://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-    -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,6 +43,8 @@
     <script>
     function create_yt(rec, url) {
         var _url = url.split('/').pop()
+        _url = _url.split('watch?v=').pop()
+
         $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src = "https://www.youtube.com/embed/' + _url + '" frameborder = "0" fs="1" allowfullscreen> < /iframe></div > ');
     }
 
@@ -55,12 +54,24 @@
     }
 
     function create_pdf(rec, url) {
-        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src = "' + url + '" frameborder = "0" allowfullscreen > < /iframe></div >');
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src="' + url + '" frameborder = "0" allowfullscreen > < /iframe></div >');
     }
+
+    function create_kizoa(rec, url) {
+        var _url = url.split('/').pop()
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src="http://www.kizoa.com/embed-' + _url + '" frameborder = "0" fs="1" allowfullscreen> < /iframe></div > ');
+    }
+
+    function create_sway(rec, url) {
+        var _url = url.split('/').pop();
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src="https://sway.com/s/' + _url + '/embed" frameborder = "0" fs="1" allowfullscreen> < /iframe></div > ');
+    }
+
 
     function muestraRecurso(rec) {
         var itemID = rec.getAttribute("itemid");
         var url = rec.getAttribute("url");
+        console.log(url)
         var pos = rec.getElementsByClassName('iflense');
         if (url.indexOf('docs.google') != -1) {
             create_go(pos, url);
@@ -68,6 +79,11 @@
             create_pdf(pos, url);
         } else if (url.indexOf('youtu') != -1) {
             create_yt(pos, url);
+        } else if (url.indexOf('kizoa') != -1) {
+            create_kizoa(pos, url);
+        } else if (url.indexOf('sway') != -1) {
+            console.log(url);
+            create_sway(pos, url);
         }
     }
     </script>
@@ -86,7 +102,6 @@
         return map;
     }
     </script>
-
 </head>
 
 <body>
@@ -108,7 +123,6 @@
                     <span data-ex-color="#FF00FF">Gestión de las emociones</span>
                     <span data-ex-color="#009A57">TAC (Tecnologías del Aprendizaje y del Conocimiento)</span>
                 </div>
-
                 <div data-ex-role="coder" data-ex-coder-class="Color" id="colores-centros" style="display: none;">
                     <span data-ex-color="blue">Ed. Especial</span>
                     <span data-ex-color="red">Primaria</span>
@@ -125,16 +139,17 @@
                     </div>
                     <div data-ex-class-subcontent="iflense"></div>
                     <br>
-                    <div data-ex-if-exists=".webproyecto" class="web"><strong>Web del proyecto: </strong><a data-ex-href-content=".webproyecto" data-ex-content=".webproyecto"></a>
+                    <div data-ex-if-exists=".webproyecto" class="web"><strong>Web del proyecto: </strong>
+                        <a data-ex-href-content=".webproyecto" data-ex-content=".webproyecto"></a>
                     </div>
                     <div data-ex-if-exists=".responsables" class="responsables"><strong>Responsables: </strong><span data-ex-content=".responsables"></span>
                     </div>
-                     <div data-ex-if-exists=".contacto" class="responsables"><strong>Contacto: </strong><span data-ex-content=".contacto"></span>
+                    <div data-ex-if-exists=".contacto" class="responsables"><strong>Contacto: </strong><span data-ex-content=".contacto"></span>
                     </div>
                     <p><a target="_parent" data-ex-href-subcontent="http://area47mil.educa.aragon.es/w/index.php?curid={{.pagina}}" style="text-decoration: underline;">Más info sobre la actividad</a></p>
                 </div>
                 <!-- mapa -->
-                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centros.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".centros.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false" >
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centros.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".centros.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false">
                 </div>
             </div>
             <div class="col-md-3">
