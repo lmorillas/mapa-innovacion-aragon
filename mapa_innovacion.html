@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://bootswatch.com/united/bootstrap.min.csshttps://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
@@ -99,6 +100,7 @@
             create_vimeo(pos, url);
         } else if (url.indexOf('swf') != -1) {
             create_swf(pos, url);
+        }
     }
  </script>
     <script type="text/javascript">
@@ -122,7 +124,7 @@
 <body>
     <div class="container-fluid" style="padding:0;">
         <div data-ex-role="exhibit-collection" data-ex-item-types="rec"></div>
-        <div class="row " id="content">
+        <div class="row " id="content" style="margin:0;">
             <div class="col-md-3">
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, .centros.label, .cpro.label, .centros.localidad">
                 </div>
