@@ -150,7 +150,7 @@
                 </div>
                 <!-- información del recurso -->
                 <div class="map-lens" data-ex-role="lens" style="display: none" data-ex-item-types="rec" data-ex-onshow="muestraRecurso(this)" data-ex-url-subcontent="{{.link}}">
-                    <p data-ex-content="concat(.id, .label, ' (', .centros.label, ')')" style="font-weight: bold;"></p>
+                    <p style="font-weight: bold;"><span data-ex-content=".label"></span>  (<span data-ex-content=".centros.label"></span>)</p>
                     <div data-ex-id-subcontent="{{value}}">
                     </div>
                     <div data-ex-class-subcontent="iflense"></div>
