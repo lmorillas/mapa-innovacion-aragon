@@ -52,7 +52,8 @@
         var _url = url.split('/').pop()
         _url = _url.split('watch?v=').pop()
 
-        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src = "https://www.youtube.com/embed/' + _url + '" frameborder = "0" fs="1" allowfullscreen> < /iframe></div > ');
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9"> <iframe  src = "https://www.youtube.com/embed/' +
+            _url + '" frameborder = "0" fs="1" allowfullscreen> < /iframe></div > ');
     }
 
     function create_go(rec, url) {
@@ -191,8 +192,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
             </div>
         </div>
         <footer>
