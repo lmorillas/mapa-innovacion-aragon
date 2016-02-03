@@ -39,5 +39,12 @@
         "type": "tipo",
         "tipo": "C. Rural Agrupado",
         "label": "CRA"
-    }]
+    },
+    {
+        "type": "tipo",
+        "tipo": "Formación Profesional",
+        "label": "CINTFP"
+    }
+    ]
 }
+

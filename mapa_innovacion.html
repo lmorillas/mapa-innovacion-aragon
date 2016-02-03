@@ -10,8 +10,10 @@
     <link href="datosp.json" type="application/json" rel="exhibit-data">
     <!-- datos_centros.csv  datos de los centros educativos (centros que han enviado recursos -->
     <!-- recursos_centros.csv  datos de los recursos que han mandado los centros educativos -->
-    <link href="http://area47mil.educa.aragon.es/w/index.php?title=Especial:CargoExport&tables=NRecursosDB%2CCentrosDB&join+on=NRecursosDB.centros+HOLDS+CentrosDB.ccentro&fields=titularidad%3Dtit%2C+ddencor%3Dtipo%2Cdprov%3Dprov%2Cdenom%3Dlabel%2C%22cen%22%3Dtype%2Cccentro%3Did%2Cdmunic%3Dlocalidad%2C+coord__full%3Dcoord&&group+by=ccentro&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
-    <link href="http://area47mil.educa.aragon.es/w/index.php?title=Especial:CargoExport&tables=NRecursosDB&&fields=titulo%3Dlabel%2C%22rec%22%3Dtype%2Clink%2Ccprog%3Dcpro%2Cmetodologia%2Cdescripcion%2Cmas%2Cwebproyecto%2Ccompetencias%2Cresponsables%2Ccontacto%2Clineas%2CREPLACE%28REPLACE%28institucional%2C+0%2C+%22No+institucional%22%29%2C+1%2C+%22Institucional%22%29%3Dinstitucional%2C_pageID%3Dpagina%2Ccentros&&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=";">
+    <link href="/w/index.php?title=Especial:CargoExport&tables=RecursosDBN%2CCentrosDB&join+on=RecursosDBN.centros+HOLDS
++CentrosDB._pageTitle&fields=titularidad%3Dtit%2C+ddencor%3Dtipo%2Cdprov%3Dprov%2Cdenom%3Dlabel%2C%22cen%22%3Dtype%2Cccentro%3Did%2Cdmunic%3Dlocalidad
+%2C+coord__full%3Dcoord&&group+by=ccentro&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
+    <link href="/w/index.php?title=Especial:CargoExport&tables=RecursosDBN%2CCentrosDB&join+on=RecursosDBN.centros+HOLDS+CentrosDB._pageTitle&fields=RecursosDBN._pageName%3Dlabel%2C+group_concat%28ccentro+SEPARATOR+%27%2C%27%29%3Dcentros%2Cwebproyecto%2Ccompetencias%2Cresponsables%2C+contacto%2Clineas%2CREPLACE%28REPLACE%28institucional%2C+0%2C+%22No+institucional%22%29%2C+1%2C+%22Institucional%22%29%3Dinstitucional%2CRecursosDBN._pageID%3Dpagina%2C%22rec%22%3Dtype%2Clink&&group+by=RecursosDBN._pageName&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=",">
     <!-- for testing -->
     <!--
     <link href="csvs/datos_centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
@@ -46,7 +48,7 @@
     });
     </script>
     <script>
- function create_yt(rec, url) {
+    function create_yt(rec, url) {
         var _url = url.split('/').pop()
         _url = _url.split('watch?v=').pop()
 
@@ -78,7 +80,7 @@
     }
 
     function create_swf(rec, url) {
-        $(rec).append('<div class="embed-responsive embed-responsive-16by9"><object data="'+url+'" type="application/x-shockwave-flash" > <param value="' + url + '" name="movie"  /></object></div>');
+        $(rec).append('<div class="embed-responsive embed-responsive-16by9"><object data="' + url + '" type="application/x-shockwave-flash" > <param value="' + url + '" name="movie"  /></object></div>');
     }
 
     function muestraRecurso(rec) {
@@ -96,13 +98,13 @@
             create_kizoa(pos, url);
         } else if (url.indexOf('sway') != -1) {
             create_sway(pos, url);
-        }  else if (url.indexOf('vimeo') != -1) {
+        } else if (url.indexOf('vimeo') != -1) {
             create_vimeo(pos, url);
         } else if (url.indexOf('swf') != -1) {
             create_swf(pos, url);
         }
     }
- </script>
+    </script>
     <script type="text/javascript">
     function map_with_borders(mapDiv) {
 
@@ -112,13 +114,12 @@
             });
 
         var ctaLayer = new google.maps.KmlLayer({
-            url: "http://lmorillas.github.io/exhibit_tests/aragon.kmz",
+            url: "http://innovacion.educa.aragon.es/visual2/aragon.kmz",
             map: map
         });
         return map;
     }
     </script>
-
 </head>
 
 <body>
@@ -140,7 +141,6 @@
                     <span data-ex-color="#FF00FF">Gestión de las emociones</span>
                     <span data-ex-color="#009A57">TAC (Tecnologías del Aprendizaje y del Conocimiento)</span>
                 </div>
-
                 <div data-ex-role="coder" data-ex-coder-class="Color" id="colores-centros" style="display: none;">
                     <span data-ex-color="blue">Ed. Especial</span>
                     <span data-ex-color="red">Primaria</span>
@@ -152,24 +152,45 @@
                 </div>
                 <!-- información del recurso -->
                 <div class="map-lens" data-ex-role="lens" style="display: none" data-ex-item-types="rec" data-ex-onshow="muestraRecurso(this)" data-ex-url-subcontent="{{.link}}">
-                    <p style="font-weight: bold;"><span data-ex-content=".label"></span>  (<span data-ex-content=".centros.label"></span>)</p>
+                    <p style="font-weight: bold;"><span data-ex-content=".label"></span> (<span data-ex-content=".centros.label"></span>)</p>
                     <div data-ex-id-subcontent="{{value}}">
                     </div>
                     <div data-ex-class-subcontent="iflense"></div>
                     <br>
-                    <div data-ex-if-exists=".webproyecto" class="web"><strong>Web del proyecto: </strong><a data-ex-href-content=".webproyecto" data-ex-content=".webproyecto"></a>
+                    <div data-ex-if-exists=".webproyecto" class="web"><strong>Web del proyecto: </strong>
+                        <a data-ex-href-content=".webproyecto" data-ex-content=".webproyecto"></a>
                     </div>
                     <div data-ex-if-exists=".responsables" class="responsables"><strong>Responsables: </strong><span data-ex-content=".responsables"></span>
                     </div>
-                     <div data-ex-if-exists=".contacto" class="responsables"><strong>Contacto: </strong><span data-ex-content=".contacto"></span>
+                    <div data-ex-if-exists=".contacto" class="responsables"><strong>Contacto: </strong><span data-ex-content=".contacto"></span>
                     </div>
-                    <p><a target="_parent" data-ex-href-subcontent="http://area47mil.educa.aragon.es/w/index.php?curid={{.pagina}}" style="text-decoration: underline;">Más info sobre la actividad</a></p>
+                    <p><a target="_parent" data-ex-href-subcontent="http://innovacion.educa.aragon.es/w/index.php?curid={{.pagina}}" style="text-decoration: underline;">Más info sobre la actividad</a></p>
                 </div>
                 <!-- mapa -->
-                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centros.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".centros.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false" >
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa" data-ex-latlng=".centros.coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".centros.tipo.tipo" data-ex-color-coder="colores-centros" data-ex-fixed-order="Primaria;Secundaria;Ed. Especial" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false">
                 </div>
             </div>
             <div class="col-sm-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Proyectos destacados del mes
+                    </div>
+                    <div class="panel-body embed-responsive" style="min-height:200px; max-height:200px;">
+                        <div id="carousel-centros-destacados" class="carousel slide" data-ride="carousel" data-interval="3000">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href="http://innovacion.educa.aragon.es/wiki/Robótica_educativa_en_Educación_Infantil_y_Primaria"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6c/Viajebeebot.jpg/283px-Viajebeebot.jpg" alt="Aprendiendo con robótica" style="margin:auto;"></a>
+                                </div>
+                                <div class="item">
+                                    <a href="http://innovacion.educa.aragon.es/wiki/Programa_Ciberayudantes"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6d/Ciberayuda.jpg/360px-Ciberayuda.jpg" alt="Programa Ciberayudantes"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.tit" data-ex-facet-label="Titularidad" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".centros.prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-sort-mode="count" data-ex-show-missing="false" data-ex-scroll="false"></div>
