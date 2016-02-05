@@ -17,7 +17,7 @@
         "label": "CPRI-ES"
     }, {
         "type": "tipo",
-        "tipo": ["Infantil", "Primaria"],
+        "tipo": "Infantil y Primaria",
         "label": "CEIP"
     }, {
         "type": "tipo",
