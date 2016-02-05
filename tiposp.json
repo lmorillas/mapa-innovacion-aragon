@@ -1,7 +1,7 @@
 {
     "items": [{
         "type": "tipo",
-        "tipo": ["Primaria", "Secundaria"],
+        "tipo": "Primaria y secundaria",
         "label": "CPRI-INPRISE"
     }, {
         "type": "tipo",
@@ -17,7 +17,7 @@
         "label": "CPRI-ES"
     }, {
         "type": "tipo",
-        "tipo": ["Infantil", "Primaria"],
+        "tipo": "Infantil y primaria",
         "label": "CEIP"
     }, {
         "type": "tipo",
