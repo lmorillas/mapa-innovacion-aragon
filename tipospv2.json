@@ -1,0 +1,50 @@
+{
+    "items": [{
+        "type": "tipo",
+        "tipo": "Primaria y secundaria",
+        "label": "CPRI-INPRISE"
+    }, {
+        "type": "tipo",
+        "tipo": "Secundaria",
+        "label": "IES"
+    }, {
+        "type": "tipo",
+        "tipo": "Ed. Especial",
+        "label": "CEE"
+    }, {
+        "type": "tipo",
+        "tipo": "Secundaria",
+        "label": "CPRI-ES"
+    }, {
+        "type": "tipo",
+        "tipo": "Infantil y primaria",
+        "label": "CEIP"
+    }, {
+        "type": "tipo",
+        "tipo": "Secundaria",
+        "label": "SEC-IES"
+    }, {
+        "type": "tipo",
+        "tipo": "Ed. Especial",
+        "label": "CPRI-EE"
+    }, {
+        "type": "tipo",
+        "tipo": "Infantil",
+        "label": "EEI"
+    }, {
+        "type": "tipo",
+        "tipo": "Formaci\u00f3n Profesional",
+        "label": "CPRI-FPE"
+    }, {
+        "type": "tipo",
+        "tipo": "C. Rural Agrupado",
+        "label": "CRA"
+    },
+    {
+        "type": "tipo",
+        "tipo": "Formación Profesional",
+        "label": "CINTFP"
+    }
+    ]
+}
+
