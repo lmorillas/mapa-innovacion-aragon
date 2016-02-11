@@ -69,6 +69,7 @@ function showProjects(centro) {
 
  jQuery(document).bind("dataload.exhibit", function() {
         jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales:</strong><span id="totalRec"></span></span>');
-
+        var url = 'http://innovacion.educa.aragon.es/w/index.php?title=Especial:CargoExport&tables=RecursosDBN&fields=count(_pageName)=recursos&format=json'
+        jQuery.getJSON( url, function( json ) {jQuery('#totalRec').html(json[0].recursos);});
     });
 
