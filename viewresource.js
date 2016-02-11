@@ -68,6 +68,7 @@ function showProjects(centro) {
 }
 
  jQuery(document).bind("dataload.exhibit", function() {
-        jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales:</strong> 125</span>');
+        jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales:</strong><span id="totalRec"></span></span>');
+
     });
 
