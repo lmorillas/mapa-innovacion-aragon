@@ -95,13 +95,12 @@ function lineaFormatter(elmt) {
 }
 
 function institucionalFormatter (elmt){
-    cosa = elmt;
     switch (jQuery(elmt).find('.exhibit-flowingFacet-value-link').text()){
         case "1":
-            jQuery(cosa).find('.exhibit-flowingFacet-value-link').html('Institucional');
+            jQuery(elmt).find('.exhibit-flowingFacet-value-link').html('Institucional');
             break;
         case "0":
-            jQuery(cosa).find('.exhibit-flowingFacet-value-link').html('No institucional');
+            jQuery(elmt).find('.exhibit-flowingFacet-value-link').html('No institucional');
             break;
     }
     switch (elmt[0].getAttribute('title')){
