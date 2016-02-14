@@ -6,8 +6,9 @@
     <title>Programas educativos Aragón</title>
     <!-- metadata -->
     <!-- Datos + importadores -->
- <link href="centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
+    <link href="centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
     <link href="recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=",">
+    <!-- datosp.json: datos de los programas (nombre/label e id -->
     <!-- datosp.json: datos de los programas (nombre/label e id -->
     <link href="datosp.json" type="application/json" rel="exhibit-data">
     <!-- tipos de actividades -->
@@ -48,7 +49,6 @@
         return map;
     }
     </script>
-
 </head>
 
 <body>
@@ -56,7 +56,7 @@
         <div data-ex-role="exhibit-collection" data-ex-item-types="cen"></div>
         <div class="row " id="content" style="margin:0;">
             <div class="col-sm-3">
-               <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, !centros.label, !centros.cpro.label, .localidad">
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, !centros.label, !centros.cpro.label, .localidad">
                 </div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros.lineas" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false" data-ex-formatter="lineaFormatter"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros.competencias" data-ex-facet-label="Competencias" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
@@ -64,6 +64,15 @@
             </div>
             <div class="col-sm-6">
                 <!-- color coder -->
+                <div data-ex-role="coder" data-ex-coder-class="Color" id="colores-lineas" style="display: none;">
+                    <span data-ex-color="#6C2681">Compromiso social</span>
+                    <span data-ex-color="#69C4B7">Comunicación oral</span>
+                    <span data-ex-color="#FBC42B">Gestión de las emociones</span>
+                    <span data-ex-color="#B71306">Metodologías activas</span>
+                    <span data-ex-color="#CCCCCC">TAC (Tecnologías del Aprendizaje y del Conocimiento)</span>
+                    <span data-ex-case="others" data-ex-color="yellow">Otras</span>
+                    <span data-ex-case="mixed" data-ex-color="pink">Varias líneas</span>
+                </div>
                 <div data-ex-role="coder" data-ex-coder-class="Color" id="colores-centros" style="display: none;">
                     <span data-ex-color="blue">Ed. Especial</span>
                     <span data-ex-color="red">Primaria</span>
@@ -98,28 +107,31 @@
                     <p id="projectList"><strong>Proyectos:</strong> <span class="datosproyectos" data-ex-content="!centros"></span></p>
                 </div>
                 <!-- mapa -->
-                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa de centros" data-ex-latlng=".coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".tipo.tipo" data-ex-color-coder="colores-centros" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false">
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa de centros" data-ex-latlng=".coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key="!centros.lineas" data-ex-color-coder="colores-lineas" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false">
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Proyectos destacados del mes
                     </div>
-                    <div class="panel-body embed-responsive" style="min-height:180px; max-height:180px;">
-                        <div id="carousel-centros-destacados" class="carousel slide" data-ride="carousel" data-interval="3000">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <a href="http://innovacion.educa.aragon.es/wiki/Robótica_educativa_en_Educación_Infantil_y_Primaria"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6c/Viajebeebot.jpg/283px-Viajebeebot.jpg" alt="Aprendiendo con robótica" style="margin:auto;"></a>
+                    <div class="panel-body" >
+                            <div id="carousel-centros-destacados" class="carousel slide" data-ride="carousel" data-interval="3000">
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <a href="http://innovacion.educa.aragon.es/wiki/Robótica_educativa_en_Educación_Infantil_y_Primaria"><img class="img-responsive" src="http://innovacion.educa.aragon.es/w/images/thumb/6/6c/Viajebeebot.jpg/283px-Viajebeebot.jpg" alt="Aprendiendo con robótica" style="margin:auto;"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="http://innovacion.educa.aragon.es/wiki/Programa_Ciberayudantes"><img class="img-responsive" src="http://innovacion.educa.aragon.es/w/images/thumb/6/6d/Ciberayuda.jpg/283px-Ciberayuda.jpg" alt="Programa Ciberayudantes"></a>
+                                    </div>
                                 </div>
-                                <div class="item">
-                                    <a href="http://innovacion.educa.aragon.es/wiki/Programa_Ciberayudantes"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6d/Ciberayuda.jpg/283px-Ciberayuda.jpg" alt="Programa Ciberayudantes"></a>
-                                </div>
+                                <!-- Carousel nav -->
+    <a class="carousel-control left" href="#carousel-centros-destacados" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#carousel-centros-destacados" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
                             </div>
-                        </div>
                     </div>
                 </div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
