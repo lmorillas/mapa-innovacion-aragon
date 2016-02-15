@@ -73,7 +73,7 @@ jQuery(document).bind("dataload.exhibit", function() {
 
 
 function lineaFormatter(elmt) {
-    var link = jQuery(elmt).find('.exhibit-flowingFacet-value-link') //.prepend('<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABm0lEQVQ4T63UzUvUURTG8c9vEYGiMwlFuDA3OpWzK6gWgvUHFOQiCFQIoqaZCoLATZvWLdL0V1CQ2NCyokWLIAuCXqBlxdgiatMLiCXagAQVd6ZhbMycps7y3nu+53nuPfdEfh9pbNNlh8hmfEfBK0/xDC9r06JlnA4n7bbPTi26FaUVfSulNpnW7LF5t1035/LS3F9BHW4Z1ibj8wpKy8tjks6Z8db+yrkqKEDyEnrN/xFS2byv1SGz3pRhZVCwM6x/VSW1FS5Y54zJYDOA0oaMmrBQl5LaQ4NaXHMsgIZclHPU+4ZAsXZZI5EusUt67DHXEOiepKznkW5THlq0wdeGQB+s0WdtJGXKA4s2/jsoFv8PawyKnZDxriFr49rlnA+vttWAcZN1NmJttQGt8o6UG3KTnNMOyPr0V6pGtDlrwqwr1S/S6aarkvrqVHZXQsaM1/qrX6Qio9MNp6x3fBVlQcmojxXIclBYSThsr4OlMZJS1ONLqc4LzQqaPLHgjnyws/IYqe5swXYpuygNthAF0x79HGyF2rv8Ab1raGApJNh5AAAAAElFTkSuQmCC" style="vertical-align: middle;"></img> ');
+    var link = jQuery(elmt).find('.exhibit-flowingFacet-value-link');
     var dest = jQuery(elmt).find(".exhibit-flowingFacet-value-checkbox img");
     switch (link[0].textContent) {
         case "TAC (Tecnologías del Aprendizaje y del Conocimiento)":
@@ -111,3 +111,10 @@ function institucionalFormatter (elmt){
             elmt[0].setAttribute('title', 'Institucional');
     }
 }
+
+
+jQuery(document).bind("dataload.exhibit", function() {
+        var leyenda = '<div class="exhibit-color-legend"><span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6f/Compromiso_social.svg/18px-Compromiso_social.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Comprometido</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/8/8e/Monstruo_comunicacion_oral.svg/18px-Monstruo_comunicacion_oral.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Comunicador</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6b/Gestion_de_emociones.svg/18px-Gestion_de_emociones.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Emotivo</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/7/73/Metodologias_activas.svg/18px-Metodologias_activas.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Activo</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/3/3c/TAC.svg/18px-TAC.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Digital</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAACA0lEQVQ4T2NkwA50gMLGqrLy5oz/GTSA7P8MjAw3bj1+eBLIPgPE19C1MaILyIlL5jsaGPlbaOvxqsnKfdNRVPr27x9Q58N7XDcfPeA+fuXS500njiz7+PnzbGS9KAYBDdlQERkvlBkQ/AGHS8HCU9atFuhZufDNw5cvg2Dq4AbJiYlvWFLTwm+rZ/AZnyEwuf3nzvEldTe8e/D8OdgwsEEg7wBdEkzIJegWTF63UrB2/sxFIG+CDNKJ9/CdtKCi7gsxLkFXE9dex7t45/YskEHx04sqczL8gp6TY9C0jWuksvs7JzICo3jajKIKbSdDk4/kGLT37GmB7AmdVxjVZOT3HZ4y66eYgNBvcgx68e4dq0NBGjujupz8vgMTZv2UEKLUIKDXplHDa0DvxE0rLM/L9A95Ro7Xpq5fLZUzsWsCKNa0Yl29py6qbiAqIaJbFttax7dk9/Z0cIKUl5DKKQ2PCc8ODH1Piqsmrl0u1LRg9oJ3nz/PgWcRBXHJ9fMr6wUcDIyJctmu0yf5M/va39x7/jQYnkVgrlCQlFxXFBYtmhsYjtdlIJdMWrPyJcwQDINAAvy8vKl+VnZRFlo6vOoy8t+0FZW/gsSv3r/LfePRA64T1y5/2XbiyBKQd5CDAaM8gkpqAmkTdVl5S2C2BhVsoKLtxs3HD48BWaCC7QZ6WAIAOPHIUk6vzg0AAAAASUVORK5CYII=" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Varias&nbsp;líneas</span>&nbsp; </span> &nbsp; </div>';
+        jQuery('.exhibit-color-legend').replaceWith(leyenda);
+        jQuery('.exhibit-color-legend').show();
+});
