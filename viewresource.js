@@ -67,10 +67,6 @@ function showProjects(centro) {
     }
 }
 
-jQuery(document).bind("dataload.exhibit", function() {
-    jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales:</strong> 125</span>');
-});
-
 
 function lineaFormatter(elmt) {
     var link = jQuery(elmt).find('.exhibit-flowingFacet-value-link');
@@ -114,7 +110,20 @@ function institucionalFormatter (elmt){
 
 
 jQuery(document).bind("dataload.exhibit", function() {
-        var leyenda = '<div class="exhibit-color-legend"><span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6f/Compromiso_social.svg/18px-Compromiso_social.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Comprometido</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/8/8e/Monstruo_comunicacion_oral.svg/18px-Monstruo_comunicacion_oral.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Comunicador</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6b/Gestion_de_emociones.svg/18px-Gestion_de_emociones.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Emotivo</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/7/73/Metodologias_activas.svg/18px-Metodologias_activas.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Activo</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/3/3c/TAC.svg/18px-TAC.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Digital</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAACA0lEQVQ4T2NkwA50gMLGqrLy5oz/GTSA7P8MjAw3bj1+eBLIPgPE19C1MaILyIlL5jsaGPlbaOvxqsnKfdNRVPr27x9Q58N7XDcfPeA+fuXS500njiz7+PnzbGS9KAYBDdlQERkvlBkQ/AGHS8HCU9atFuhZufDNw5cvg2Dq4AbJiYlvWFLTwm+rZ/AZnyEwuf3nzvEldTe8e/D8OdgwsEEg7wBdEkzIJegWTF63UrB2/sxFIG+CDNKJ9/CdtKCi7gsxLkFXE9dex7t45/YskEHx04sqczL8gp6TY9C0jWuksvs7JzICo3jajKIKbSdDk4/kGLT37GmB7AmdVxjVZOT3HZ4y66eYgNBvcgx68e4dq0NBGjujupz8vgMTZv2UEKLUIKDXplHDa0DvxE0rLM/L9A95Ro7Xpq5fLZUzsWsCKNa0Yl29py6qbiAqIaJbFttax7dk9/Z0cIKUl5DKKQ2PCc8ODH1Piqsmrl0u1LRg9oJ3nz/PgWcRBXHJ9fMr6wUcDIyJctmu0yf5M/va39x7/jQYnkVgrlCQlFxXFBYtmhsYjtdlIJdMWrPyJcwQDINAAvy8vKl+VnZRFlo6vOoy8t+0FZW/gsSv3r/LfePRA64T1y5/2XbiyBKQd5CDAaM8gkpqAmkTdVl5S2C2BhVsoKLtxs3HD48BWaCC7QZ6WAIAOPHIUk6vzg0AAAAASUVORK5CYII=" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Varias&nbsp;líneas</span>&nbsp; </span> &nbsp; </div>';
+        var leyenda = '<div class="exhibit-color-legend"><span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6f/Compromiso_social.svg/18px-Compromiso_social.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Comprometido</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/8/8e/Monstruo_comunicacion_oral.svg/18px-Monstruo_comunicacion_oral.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Comunicador</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/6/6b/Gestion_de_emociones.svg/18px-Gestion_de_emociones.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Emotivo</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/7/73/Metodologias_activas.svg/18px-Metodologias_activas.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Activo</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="http://innovacion.educa.aragon.es/w/images/thumb/3/3c/TAC.svg/18px-TAC.svg.png" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Digital</span>&nbsp; </span>&nbsp; <span class="exhibit-legendWidget-entry"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAACA0lEQVQ4T2NkwA50gMLGqrLy5oz/GTSA7P8MjAw3bj1+eBLIPgPE19C1MaILyIlL5jsaGPlbaOvxqsnKfdNRVPr27x9Q58N7XDcfPeA+fuXS500njiz7+PnzbGS9KAYBDdlQERkvlBkQ/AGHS8HCU9atFuhZufDNw5cvg2Dq4AbJiYlvWFLTwm+rZ/AZnyEwuf3nzvEldTe8e/D8OdgwsEEg7wBdEkzIJegWTF63UrB2/sxFIG+CDNKJ9/CdtKCi7gsxLkFXE9dex7t45/YskEHx04sqczL8gp6TY9C0jWuksvs7JzICo3jajKIKbSdDk4/kGLT37GmB7AmdVxjVZOT3HZ4y66eYgNBvcgx68e4dq0NBGjujupz8vgMTZv2UEKLUIKDXplHDa0DvxE0rLM/L9A95Ro7Xpq5fLZUzsWsCKNa0Yl29py6qbiAqIaJbFttax7dk9/Z0cIKUl5DKKQ2PCc8ODH1Piqsmrl0u1LRg9oJ3nz/PgWcRBXHJ9fMr6wUcDIyJctmu0yf5M/va39x7/jQYnkVgrlCQlFxXFBYtmhsYjtdlIJdMWrPyJcwQDINAAvy8vKl+VnZRFlo6vOoy8t+0FZW/gsSv3r/LfePRA64T1y5/2XbiyBKQd5CDAaM8gkpqAmkTdVl5S2C2BhVsoKLtxs3HD48BWaCC7QZ6WAIAOPHIUk6vzg0AAAAASUVORK5CYII=" style="vertical-align: middle;">&nbsp;<span class="exhibit-legendWidget-entry-title">Varios&nbsp;monstruos</span>&nbsp; </span> &nbsp; </div>';
         jQuery('.exhibit-color-legend').replaceWith(leyenda);
         jQuery('.exhibit-color-legend').show();
 });
+
+/*
+jQuery(document).bind("dataload.exhibit", function() {
+    jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales:</strong> 125</span>');
+});
+*/
+
+jQuery(document).bind("dataload.exhibit", function() {
+         jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales: </strong><span id="totalRec"></span></span>');
+        var url = '//innovacion.educa.aragon.es/w/index.php?title=Especial:CargoExport&tables=RecursosDBN&fields=count(_pageName)=recursos&format=json'
+        jQuery.getJSON( url, function( json ) {jQuery('#totalRec').html(json[0].recursos);});
+    });
+
