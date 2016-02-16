@@ -1,3 +1,5 @@
+/* Funciones auxiliares de visualización*/
+
 function create_yt(rec, url) {
     var _url = url.split('/').pop()
     _url = _url.split('watch?v=').pop()
@@ -34,6 +36,7 @@ function create_swf(rec, url) {
     $(rec).append('<div class="embed-responsive embed-responsive-16by9"><object data="' + url + '" type="application/x-shockwave-flash" > <param value="' + url + '" name="movie"  /></object></div>');
 }
 
+/* Muestra recurso según su tipo*/
 function muestraRecurso(rec) {
     var itemID = rec.getAttribute("itemid");
     var url = rec.getAttribute("url");
@@ -55,6 +58,7 @@ function muestraRecurso(rec) {
     }
 }
 
+/* Muestra proyectos del centro como lista, no como separados por comas */
 function showProjects(centro) {
     var itemID = centro.getAttribute("itemid");
     var datos = centro.getElementsByClassName('exhibit-item');
@@ -67,11 +71,15 @@ function showProjects(centro) {
     }
 }
 
+/* Recursos totales. Hace llamada a tabla Cargo */
 jQuery(document).bind("dataload.exhibit", function() {
-    jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales:</strong> 125</span>');
-});
+        jQuery('div.exhibit-views-header div').append('<span class="pull-right"> <span class="glyphicon glyphicon-hand-right"></span> <strong>Recursos totales: </strong><span id="totalRec"></span></span>');
+        var url = '//innovacion.educa.aragon.es/w/index.php?title=Especial:CargoExport&tables=RecursosDBN&fields=count(_pageName)=recursos&format=json'
+        jQuery.getJSON( url, function( json ) {jQuery('#totalRec').html(json[0].recursos);});
+    });
 
 
+/* Añade iconos a líneas estratégicas. Elimina cuadrado de selección */
 function lineaFormatter(elmt) {
     var link = jQuery(elmt).find('.exhibit-flowingFacet-value-link') //.prepend('<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABm0lEQVQ4T63UzUvUURTG8c9vEYGiMwlFuDA3OpWzK6gWgvUHFOQiCFQIoqaZCoLATZvWLdL0V1CQ2NCyokWLIAuCXqBlxdgiatMLiCXagAQVd6ZhbMycps7y3nu+53nuPfdEfh9pbNNlh8hmfEfBK0/xDC9r06JlnA4n7bbPTi26FaUVfSulNpnW7LF5t1035/LS3F9BHW4Z1ibj8wpKy8tjks6Z8db+yrkqKEDyEnrN/xFS2byv1SGz3pRhZVCwM6x/VSW1FS5Y54zJYDOA0oaMmrBQl5LaQ4NaXHMsgIZclHPU+4ZAsXZZI5EusUt67DHXEOiepKznkW5THlq0wdeGQB+s0WdtJGXKA4s2/jsoFv8PawyKnZDxriFr49rlnA+vttWAcZN1NmJttQGt8o6UG3KTnNMOyPr0V6pGtDlrwqwr1S/S6aarkvrqVHZXQsaM1/qrX6Qio9MNp6x3fBVlQcmojxXIclBYSThsr4OlMZJS1ONLqc4LzQqaPLHgjnyws/IYqe5swXYpuygNthAF0x79HGyF2rv8Ab1raGApJNh5AAAAAElFTkSuQmCC" style="vertical-align: middle;"></img> ');
     var dest = jQuery(elmt).find(".exhibit-flowingFacet-value-checkbox img");
@@ -94,6 +102,7 @@ function lineaFormatter(elmt) {
             }
 }
 
+/* Muestra 1/0 como institucional / no institucional. Añade title*/
 function institucionalFormatter (elmt){
     switch (jQuery(elmt).find('.exhibit-flowingFacet-value-link').text()){
         case "1":
