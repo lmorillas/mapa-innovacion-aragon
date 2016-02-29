@@ -111,3 +111,31 @@ function institucionalFormatter (elmt){
             elmt[0].setAttribute('title', 'Institucional');
     }
 }
+
+
+function provinciaFormatter (elmt){
+    switch (jQuery(elmt).find('.exhibit-flowingFacet-value-link').text()){
+        case "H":
+            jQuery(elmt).find('.exhibit-flowingFacet-value-link').html('Huesca');
+            break;
+        case "T":
+            jQuery(elmt).find('.exhibit-flowingFacet-value-link').html('Teruel');
+            break;
+        case "Z":
+            jQuery(elmt).find('.exhibit-flowingFacet-value-link').html('Zaragoza');
+            break;
+    }
+
+    switch (elmt[0].getAttribute('title')){
+        case "H":
+            elmt[0].setAttribute('title', 'Huesca');
+            break;
+        case "T":
+            elmt[0].setAttribute('title', 'Teruel');
+            break;
+        case "Z":
+            elmt[0].setAttribute('title', 'Zaragoza');
+
+    }
+
+}
