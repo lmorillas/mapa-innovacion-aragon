@@ -6,8 +6,16 @@
     <title>Programas educativos Aragón</title>
     <!-- metadata -->
     <!-- Datos + importadores -->
-    <link href="centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
-    <link href="recursos.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=",">
+<!---
+    <link href="/w/index.php?title=Especial:CargoExport&tables=RecursosDBN%2CCentrosDB&join+on=RecursosDBN.centros+HOLDS+CentrosDB._pageTitle&fields=ddencor%3Dtipo%2Cdprov%3Dprov%2Cdenom%3Dlabel%2C%22cen%22%3Dtype%2Cccentro%3Did%2C+coord__full%3Dcoord&where=ccentro+is+not+null&group+by=ccentro&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
+    <link href="/w/index.php?title=Especial:CargoExport&tables=RecursosDBN%2CCentrosDB&join+on=RecursosDBN.centros+HOLDS+CentrosDB._pageTitle&fields=RecursosDBN._pageName%3Dlabel%2C+webproyecto%2Cresponsables%2C+contacto%2CREPLACE%28REPLACE%28institucional%2C+0%2C+%22No+institucional%22%29%2C+1%2C+%22Institucional%22%29%3Dinstitucional%2CRecursosDBN._pageID%3Dpagina%2C%22rec%22%3Dtype%2Clink&&group+by=RecursosDBN._pageName&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" >
+    <link href="/w/index.php?title=Especial:CargoExport&tables=RecursosDBN%2CCentrosDB&join+on=RecursosDBN.centros+HOLDS+CentrosDB._pageTitle&fields=RecursosDBN._pageID%3Did%2C+group_concat%28ccentro+SEPARATOR+%27%2C%27%29%3Dcentros%2C%22recm%22%3Dtype%2C+competencias%2C+lineas&&group+by=RecursosDBN._pageName&limit=1000&format=csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=",">
+    -->
+
+     <link href="centros.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true">
+    <link href="recursos1.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" >
+    <link href="recursos2.csv" type="text/csv" rel="exhibit/data" data-ex-has-column-titles="true" data-ex-value-separator=",">
+
     <!-- datosp.json: datos de los programas (nombre/label e id -->
     <!-- datosp.json: datos de los programas (nombre/label e id -->
     <link href="datosp.json" type="application/json" rel="exhibit-data">
@@ -56,11 +64,11 @@
         <div data-ex-role="exhibit-collection" data-ex-item-types="cen"></div>
         <div class="row " id="content" style="margin:0;">
             <div class="col-sm-3">
-                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, !centros.label, !centros.cpro.label, .localidad">
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, !centros!pagina.label, !centros!pagina.cpro.label, .localidad">
                 </div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros.lineas" data-ex-facet-label="Líneas estratégicas" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false" data-ex-formatter="lineaFormatter"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros.competencias" data-ex-facet-label="Competencias" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros.institucional" data-ex-facet-label="Tipo proyecto" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false" data-ex-formatter="institucionalFormatter"></div>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!pagina.institucional" data-ex-facet-label="Tipo proyecto" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false" data-ex-formatter="institucionalFormatter"></div>
             </div>
             <div class="col-sm-6">
                 <!-- color coder -->
@@ -104,7 +112,7 @@
                 </div>
                 <div class="map-lens" data-ex-item-types="cen" data-ex-role="lens" style="display: none" data-ex-onshow="showProjects(this)">
                     <p style="font-weight: bold;"><span data-ex-content=".label"></span> </p>
-                    <p id="projectList"><strong>Proyectos:</strong> <span class="datosproyectos" data-ex-content="!centros"></span></p>
+                    <p id="projectList"><strong>Proyectos:</strong> <span class="datosproyectos" data-ex-content="!centros!pagina"></span></p>
                 </div>
                 <!-- mapa -->
                 <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa de centros" data-ex-latlng=".coord" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key="!centros.lineas" data-ex-color-coder="colores-lineas" data-ex-marker-label-point=".centros.label" data-ex-map-constructor="map_with_borders" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false">
@@ -135,7 +143,7 @@
                     </div>
                 </div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".tipo.tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".prov" data-ex-facet-label="Provincia" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false" data-ex-formatter="provinciaFormatter"></div>
             </div>
         </div>
         <footer>
