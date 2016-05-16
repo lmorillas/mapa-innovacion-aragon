@@ -44,6 +44,26 @@
         "type": "tipo",
         "tipo": "Formación Profesional",
         "label": "CINTFP"
+    },
+    {
+        "type": "tipo",
+        "tipo": "Escuela de Arte",
+        "label": "EARTE"
+    },
+    {
+        "type": "tipo",
+        "tipo": "Conservatorio de música",
+        "label": "CONSPROFMUS"
+    },
+    {
+        "type": "tipo",
+        "tipo": "Conservatorio de música",
+        "label": "CONSSUPMUS"
+    },
+    {
+        "type": "tipo",
+        "tipo": "Escuela de Idiomas",
+        "label": "EOI"
     }
     ]
 }
