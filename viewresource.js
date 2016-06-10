@@ -94,6 +94,31 @@ jQuery(document).bind("dataload.exhibit", function() {
         jQuery.getJSON( url, function( json ) {jQuery('#totalRec').html(json[0].recursos);});
     });
 
+/* Novedades */
+jQuery(document).ready(
+    jQuery.ajax({
+        type: "GET",
+        url: "http://innovacion.educa.aragon.es/w/api.php",
+        data: { action:'parse', format:'json', prop:'text', page:'Página_principal/Novedades'},
+        dataType: 'json',
+        success: function( jsondata ){
+            jQuery( '#novedades' ).html( jsondata.parse.text["*"] );
+        }
+    })
+);
+
+/* Destacados - Carrusel */
+jQuery(document).ready(
+    jQuery.ajax({
+        type: "GET",
+        url: "http://innovacion.educa.aragon.es/w/api.php",
+        data: { action:'parse', format:'json', prop:'text', page:'Página_principal/Destacados'},
+        dataType: 'json',
+        success: function( jsondata ){
+            jQuery( '#carrusel_destacados' ).html( jsondata.parse.text["*"] );
+        }
+    })
+);
 
 /* Añade iconos a líneas estratégicas. Elimina cuadrado de selección */
 function lineaFormatter(elmt) {
